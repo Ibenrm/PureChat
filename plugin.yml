@@ -5,7 +5,7 @@ api: [3.0.0]
 load: POSTWORLD
 author: 64FF00
 website: https://github.com/PurePlugins/PureChat
-depend: [PurePerms]
+depend: [PurePerms, LevelSystem]
 softdepend: [FactionsPro, XeviousPE-Factions]
 commands:
   setformat:
