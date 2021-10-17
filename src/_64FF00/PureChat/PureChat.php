@@ -472,6 +472,14 @@ class PureChat extends PluginBase
             $string = str_replace("{fac_name}", '', $string);
             $string = str_replace("{fac_rank}", '', $string);
         }
+        if($this->getServer()->getPluginManager()->getPlugin("LevelSystem")){
+            $levels = $this->getServer()->getPluginManager()->getPlugin("LevelSystem");
+            $string = str_replace("{levels}", $levels->onTags($player)."".$levels->checkLevel($player, $player->getName(), "return"), $string);
+            $string = str_replace("{progress}", $levels->checkProgress($player, $player->getName(), "return"), $string);
+        } else {
+            $string = str_replace("{levels}", "§cNOT FOUND", $string);
+            $string = str_replace("{progress}", "§cNOT FOUND", $string);
+        }
 
         $string = str_replace("{world}", ($levelName === null ? "" : $levelName), $string);
 
